@@ -1,0 +1,7 @@
+PUT http://localhost:8080/sample-resource/20210708_001
+Content-Type: application/json
+
+{
+  "key": "A",
+  "value": "Hello World!"
+}

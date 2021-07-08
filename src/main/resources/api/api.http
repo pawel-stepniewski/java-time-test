@@ -5,3 +5,7 @@ Content-Type: application/json
   "key": "A",
   "value": "Hello World!"
 }
+
+###
+
+GET http://localhost:8080/sample-resource/20210708_001

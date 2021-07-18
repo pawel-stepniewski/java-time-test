@@ -9,7 +9,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ToInstantMethodTest {
+public class A_ToInstantMethodTest {
 
     @Test
     @DisplayName("java.sql.Date#toInstant() method throws UnsupportedOperationException.")

@@ -19,7 +19,7 @@ public class SqlToTimeTest {
     }
 
     @Test
-    @DisplayName("java.sql.Time#toInstant() does not throw Exception.")
+    @DisplayName("java.sql.Time#toInstant() method throws UnsupportedOperationException.")
     public void sqlTimeToInstantThrowsException() {
         Instant now = Instant.now();
         Date sqlTime = new java.sql.Time(now.toEpochMilli());

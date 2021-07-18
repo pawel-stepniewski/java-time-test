@@ -9,7 +9,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class SqlToTimeTest {
+public class ToInstantMethodTest {
 
     @Test
     @DisplayName("java.sql.Date#toInstant() method throws UnsupportedOperationException.")
@@ -27,8 +27,22 @@ public class SqlToTimeTest {
 
     @Test
     @DisplayName("java.sql.Timestamps#toInstant() does not throw Exception.")
-    public void sqlTimestampToInstantThrowsException() {
+    public void sqlTimestampToInstantDoesNotThrowException() {
         Date sqlTimestamp = new java.sql.Timestamp(Instant.now().toEpochMilli());
         assertDoesNotThrow(sqlTimestamp::toInstant);
+    }
+
+    @Test
+    @DisplayName("java.util.Date#toInstant() does not throw Exception.")
+    public void utilDateToInstantDoesNotThrowException() {
+        Instant now = Instant.now();
+
+        assertDoesNotThrow(Date.from(now)::toInstant);
+
+//      All of the following use static method of parent class java.util.Date.
+//      So result of this calls is always java.util.Date not a class from java.sql package
+        assertDoesNotThrow(java.sql.Time.from(now)::toInstant);
+        assertDoesNotThrow(java.sql.Date.from(now)::toInstant);
+        assertDoesNotThrow(java.sql.Timestamp.from(now)::toInstant);
     }
 }

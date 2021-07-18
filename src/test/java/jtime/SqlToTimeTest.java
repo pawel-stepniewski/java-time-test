@@ -21,16 +21,14 @@ public class SqlToTimeTest {
     @Test
     @DisplayName("java.sql.Time#toInstant() method throws UnsupportedOperationException.")
     public void sqlTimeToInstantThrowsException() {
-        Instant now = Instant.now();
-        Date sqlTime = new java.sql.Time(now.toEpochMilli());
+        Date sqlTime = new java.sql.Time(Instant.now().toEpochMilli());
         assertThrows(UnsupportedOperationException.class, sqlTime::toInstant);
     }
 
     @Test
     @DisplayName("java.sql.Timestamps#toInstant() does not throw Exception.")
     public void sqlTimestampToInstantThrowsException() {
-        Instant now = Instant.now();
-        Date sqlTimestamp = new java.sql.Timestamp(now.toEpochMilli());
+        Date sqlTimestamp = new java.sql.Timestamp(Instant.now().toEpochMilli());
         assertDoesNotThrow(sqlTimestamp::toInstant);
     }
 }
